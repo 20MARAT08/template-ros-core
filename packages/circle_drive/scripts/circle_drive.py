@@ -17,11 +17,11 @@ class MyNode(DTROS):
             msg = Twist2DStamped()
             msg.v = 0.0
             msg.omega = 1.0
-            rospy.loginfo("Pub 1")
+            rospy.loginfo("Pub 1!")
             self.pub.publish(msg)
-            rate.sleep(1)
+            rate.sleep()
             msg.omega = 0.0
-            rospy.loginfo("Pub 2")
+            rospy.loginfo("Pub 2!")
             self.pub.publish(msg)
             rate.sleep()
             sys.stdout.flush()

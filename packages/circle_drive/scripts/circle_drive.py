@@ -10,12 +10,21 @@ class MyNode(DTROS):
         self.pub = rospy.Publisher("~car_cmd", Twist2DStamped, queue_size=1)
 
     def run(self):
+        rate = rospy.Rate(1)
+        
+        
         while not rospy.is_shutdown():
             msg = Twist2DStamped()
             msg.v = 0.0
             msg.omega = 1.0
+            rospy.loginfo("Pub 1")
             self.pub.publish(msg)
-
+            rate.sleep(1)
+            msg.omega = 0.0
+            rospy.loginfo("Pub 2")
+            self.pub.publish(msg)
+            rate.sleep()
+            sys.stdout.flush()
         
 if __name__ == "__main__":
     node = MyNode(node_name="circle_drive_node")

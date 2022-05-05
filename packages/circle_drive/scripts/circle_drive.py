@@ -15,11 +15,12 @@ class MyNode(DTROS):
         
         while not rospy.is_shutdown():
             msg = Twist2DStamped()
-            msg.v = 0.0
+            msg.v = 0.1
             msg.omega = 1.0
             rospy.loginfo("Pub 1!")
             self.pub.publish(msg)
             rate.sleep()
+            msg.v = 0.0
             msg.omega = 0.0
             rospy.loginfo("Pub 2!")
             self.pub.publish(msg)

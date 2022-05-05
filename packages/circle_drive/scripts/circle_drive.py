@@ -7,7 +7,7 @@ from duckietown_msgs.msg import Twist2DStamped
 class MyNode(DTROS):
     def __init__(self, node_name):
         super(MyNode, self).__init__(node_name=node_name, node_type=NodeType.DEBUG)
-        self.pub = rospy.Publisher("~car_cmd", twist2DStamped, queue_size=1)
+        self.pub = rospy.Publisher("~car_cmd", Twist2DStamped, queue_size=1)
 
     def run(self):
         while not rospy.is_shitdown():

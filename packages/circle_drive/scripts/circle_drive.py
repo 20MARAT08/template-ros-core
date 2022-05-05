@@ -10,7 +10,7 @@ class MyNode(DTROS):
         self.pub = rospy.Publisher("~car_cmd", Twist2DStamped, queue_size=1)
 
     def run(self):
-        while not rospy.is_shitdown():
+        while not rospy.is_shutdown():
             msg = Twist2DStamped()
             msg.v = 0.0
             msg.omega = 1.0
